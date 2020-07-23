@@ -11,7 +11,7 @@ from skimage import color
 import scipy.fftpack as spfft
 import pywt
 
-#########################################load Functions #########################################
+##################################################################################
 def mean_squared_error(ref, A):
     return (( ref - A )**2).mean(axis=None)
 
@@ -29,37 +29,7 @@ def single_image_loader(data_set_dire_path, image_number):
     im = plt.imread(data_set_dire_path + file_name).astype(float)
     return im
 
-# rewrite the load function into more general one
-# def load_Berkley_dataset( train_folder_path, test_folder_path,set12_path):
-#     image_dict = {};
-#     # read and prep train images
-#     train_images = []
-#     train_names = os.listdir(train_folder_path)
-#     test_names = os.listdir(test_folder_path)
 
-#     for file_name in train_names:
-#         train_images.append(io.imread(train_folder_path + file_name).astype(float)/255 );
-
-#     # read and prep test images
-#     test_images = []
-#     for file_name in test_names:
-#         image = io.imread(test_folder_path + file_name).astype(float)
-#         if image.shape[0] > image.shape[1]:
-#             image = image.T
-#         test_images.append(image/255 );
-
-#     #read and prep set12
-#     images_set12 = []
-#     set12_names = os.listdir(set12_path)
-
-#     for file_name in set12_names:
-#         images_set12.append(io.imread(set12_path + file_name).astype(float)/255 );
-
-#     image_dict['train'] = np.array(train_images)
-#     image_dict['test'] = np.array(test_images)
-#     image_dict['set12'] = np.array(images_set12)
-
-#     return image_dict
 
 def load_Berkley_dataset( train_folder_path, test_folder_path,set12_path):
     image_dict = {};
@@ -110,51 +80,6 @@ def load_set14( path):
 
     return np.array(test_images)
 
-
-#############################################################################################
-
-# fix for non-square images
-def mask_centrosymm(im_d = 41 ,p=.5):
-    '''
-    im_d: image size is (im_d, im_d)
-    p: dropping factor
-    returns a mask of size (im_d,im_d) for dropping fourier coefficents ina centro-symmetric way
-    '''
-    if im_d % 2 == 0 :
-        raise Exception('need odd dim')
-
-    b = np.random.randint(0,im_d, size = (int((p/2)*((im_d**2)-1)),2))
-    b = np.concatenate([b, im_d-1-b])
-    b = np.unique(b, axis=0)
-    uniq_shape = b.shape[0]
-
-    # remove the center
-    b = b.tolist()
-    if [int(im_d/2),int(im_d/2)] in b:
-        b.remove([int(im_d/2),int(im_d/2)])
-    b = np.array(b)
-
-
-    while uniq_shape < int(p*((im_d**2)-1)):
-        idx_needed = int((int(p*((im_d**2)-1)) - uniq_shape)/2 )
-        new_idx = np.random.randint(0,im_d, size = (idx_needed,2))
-        b = np.concatenate([b, new_idx, im_d-1-new_idx ])
-        b = np.unique(b, axis=0)
-        uniq_shape = b.shape[0]
-        # remove the center
-        b = b.tolist()
-        if [int(im_d/2),int(im_d/2)] in b:
-            b.remove([int(im_d/2),int(im_d/2)])
-        b = np.array(b)
-
-
-    mask = np.zeros([im_d,im_d])
-    for i, j in zip (b[:,0], b[:,1]):
-        mask[i,j] = 1
-
-    # set the center to one to keep the DC term
-    mask[int(im_d/2),int(im_d/2)] = 1
-    return mask
 
 ###################################### Inverse problems Tasks ##################################
 #############################################################################################
