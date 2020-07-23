@@ -2,7 +2,6 @@ import numpy as np
 import os
 import time
 import torch
-# from torch.autograd import Variable
 
 
 
