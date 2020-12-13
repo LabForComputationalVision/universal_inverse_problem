@@ -31,23 +31,22 @@ def plot_synthesis(intermed_Ys, sample):
     axs = axs.ravel()
 
     for ax in range(len(intermed_Ys)): 
-        x = rescale_image(intermed_Ys[ax].permute(1,2,0).detach().numpy())
+        x = intermed_Ys[ax].permute(1,2,0).detach().numpy()
         if x.shape[2] == 1: 
-            fig = axs[ax].imshow(x[:,:,0], 'gray')
+            fig = axs[ax].imshow(rescale_image(x[:,:,0]), 'gray')
         else: 
-            fig = axs[ax].imshow(x)
-
+            fig = axs[ax].imshow(rescale_image(x))
         axs[ax].axis('off')
     
-    sample = rescale_image(sample.permute(1,2,0).detach().numpy()) 
+    sample = sample.permute(1,2,0).detach().numpy()
     if sample.shape[2] == 1:  
-        fig = axs[-1].imshow(sample[:,:,0],'gray' )
+        fig = axs[-1].imshow(rescale_image(sample[:,:,0]),'gray' )
     else: 
-        fig = axs[-1].imshow(sample)
+        fig = axs[-1].imshow(rescale_image(sample))
 
     axs[-1].axis('off')
-    print('value range', np.round(np.min(sample ),2), np.round(np.max(sample )))        
-
+    print('value range', np.round(np.min(sample ),2), np.round(np.max(sample),2) )  
+    
 
 def plot_sample(x, corrupted, sample):
     f, axs = plt.subplots(1,3, figsize = (15,5))
