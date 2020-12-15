@@ -175,7 +175,7 @@ class rand_pixels:
 
         self.mask = torch.tensor(np.random.binomial(n=1, p=p, size = x_size ))
         if torch.cuda.is_available():
-            self.mask = se.l.mask.cuda()
+            self.mask = self.mask.cuda()
 
     def M_T(self, x):
         return x*self.mask
