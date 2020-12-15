@@ -60,39 +60,47 @@ def plot_sample(x, corrupted, sample):
     f, axs = plt.subplots(1,3, figsize = (15,5))
     axs = axs.ravel()
     x = x.permute(1,2,0)
-    if x.shape[2] == 1:
-        fig = axs[0].imshow( x[:,:,0], 'gray', vmin=0, vmax = 1)
-    else:
-        fig = axs[0].imshow( x, vmin=0, vmax = 1)
-
-    axs[0].axis('off')
-    axs[0].set_title('clean')
-
     corrupted = corrupted.permute(1,2,0)
-    if corrupted.shape[2] == 1:
-        fig = axs[1].imshow(corrupted[:,:,0], 'gray',vmin=0, vmax = 1)
-    else:
-        fig = axs[1].imshow( corrupted, vmin=0, vmax = 1)
-
-    axs[1].axis('off')
-    axs[1].set_title('measured')
-    axs[1].set_title('measured \n psnr: '+str(np.round(peak_signal_noise_ratio(x.permute(1,2,0).numpy(), corrupted.permute(1,2,0).numpy() ))))
-
     sample = sample.detach().permute(1,2,0)
-    if sample.shape[2] == 1:
-        fig = axs[2].imshow(sample[:,:,0],'gray' ,vmin=0, vmax = 1)
-        ssim = np.round(structural_similarity(x[:,:,0].numpy(), sample[:,:,0].numpy()  ) ,3 )
+    
+    if x.size()!=corrupted.size():    
+        h_diff = x.size()[0] - corrupted.size()[0]
+        w_diff = x.size()[1] - corrupted.size()[1]
+        x = x[0:x.size()[0]-h_diff,0:x.size()[1]-w_diff,: ]
+        print('WARNING: psnr and ssim calculated using a cropped original image, because the original image is not divisible by the downsampling scale factor.')
+        
+    if x.shape[2] == 1: # if gray scale image
+        fig = axs[0].imshow( x.squeeze(-1), 'gray', vmin=0, vmax = 1)
+        axs[0].set_title('original')
+        
+        fig = axs[1].imshow(corrupted.squeeze(-1), 'gray',vmin=0, vmax = 1)
+        ssim = np.round(structural_similarity(x.squeeze(-1).numpy(), corrupted.squeeze(-1).numpy()  ) ,3 )
+        psnr = np.round(peak_signal_noise_ratio(x.numpy(), corrupted.numpy() ))
+        axs[1].set_title('corrupted image \n psnr: '+str( psnr) + '\n ssim '+ str(ssim) );  
+        
+        fig = axs[2].imshow(sample.squeeze(-1),'gray' ,vmin=0, vmax = 1)
+        ssim = np.round(structural_similarity(x.squeeze(-1).numpy(), sample.squeeze(-1).numpy()  ) ,3 )
+        psnr = np.round(peak_signal_noise_ratio(x.numpy(), sample.numpy() ))
+        axs[2].set_title('reconstructed \n psnr: '+str( psnr) + '\n ssim '+ str(ssim) );
 
-    else:
+            
+    else: # if color image
+        fig = axs[0].imshow( x, vmin=0, vmax = 1)
+        axs[0].set_title('original')        
+        
+        fig = axs[1].imshow( corrupted, vmin=0, vmax = 1)
+        ssim = np.round(structural_similarity(x.numpy(), corrupted.numpy(), multichannel=True  ) ,3 )
+        psnr = np.round(peak_signal_noise_ratio(x.numpy(), corrupted.numpy() ))
+        axs[1].set_title('corrupted image \n psnr: '+str( psnr) + '\n ssim '+ str(ssim) );  
+        
         fig = axs[2].imshow(sample,vmin=0, vmax = 1)
         ssim = np.round(structural_similarity(x.numpy(), sample.numpy() , multichannel=True) ,3)
-
-    axs[2].axis('off')
-    axs[2].set_title('reconstructed')
-    psnr = np.round(peak_signal_noise_ratio(x.numpy() ,sample.numpy() ),2)
-    axs[2].set_title('reconstructed \n psnr: '+str( psnr) + '\n ssim '+ str(ssim) );
-
-
+        psnr = np.round(peak_signal_noise_ratio(x.numpy(), sample.numpy() ))   
+        axs[2].set_title('reconstructed \n psnr: '+str( psnr) + '\n ssim '+ str(ssim) );
+            
+            
+    for i in range(3): 
+        axs[i].axis('off')
 
 def plot_all_samples(sample, intermed_Ys):
     n_rows = int(np.ceil(len(intermed_Ys)/4))
