@@ -250,8 +250,7 @@ class spectral_super_resolution:
     '''
     def __init__(self, x_size, p):
         super(spectral_super_resolution, self).__init__()
-        if (x_size[0] % 2 or x_size[1]%2) == 0 :
-            raise Exception('need odd dim')
+
 
         self.x_size = x_size
         f0 = int(x_size[0]*p/2)
