@@ -241,7 +241,6 @@ class random_basis:
 #### important: when using fftn from torch the reconstruction is more lossy than when fft2 from numpy
 #### the difference between reconstruction and clean image in pytorch is of order of e-8, but in numpy is e-16
 
-#### fix: only for images of odd dims. extend!
 class spectral_super_resolution:
     '''
     creates a mask for dropping high frequency coefficients
