@@ -21,6 +21,15 @@ def single_image_loader(data_set_dire_path, image_number):
         x = torch.tensor(im.reshape(1, im.shape[0], im.shape[1]))
     return x
 
+def load_mnist_image( folder_path):
+    
+    # read and prep train images    
+    f = gzip.open(folder_path,'r')
+    image_size = 28
+    f.read(16)
+    buf = f.read(image_size * image_size )
+    data = np.frombuffer(buf, dtype=np.uint8).astype(float)/255
+    image = torch.tensor(data.reshape( 1,image_size, image_size).astype('float32'))
 
 def rescale_image(im):
     return ((im - im.min()) * (1/(im.max() - im.min()) * 255)).astype('uint8')
