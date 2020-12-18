@@ -34,6 +34,15 @@ Algorithm in a nutshell:
 • On each step, effect noise decreases, and effective prior becomes less blurred. Gradient step size automatically adapts to each noise level. \
 • This coarse to fine optimization procedure converges to a point on the manifold! \
 
+Click [here]() to watch a video of an animation of the two-dimensional simulatoin.
+
+![](figs/fig5.png)
+![](figs/fig6.png)
+![](figs/fig7.png)
+
+
+### Solving linear inverse problems using the implicit prior
+Given a set of linear measurements of an image, xc = M T x, where M is a low-rank measurement matrix, we use an enhanced version of our algorithm to recover the original image
 
 
 # In this repository
