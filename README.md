@@ -16,6 +16,11 @@ For a noisy observation, ![y=x+z](https://latex.codecogs.com/svg.latex?;y=x+z), 
 
 ![](figs/fig3.png)
 
+### Exposing the implicit prior through Empirical Bayes estimation
+For Gaussian noise contamination, the least squares estimate can be written (exactly) as:
+![\hat{x}(y)=\int x p(x|y)dx](https://latex.codecogs.com/svg.latex?;\hat{x}(y)=min_{\hat{x}}\int||\hat{x}-x||^2p(x|y)dx) 
+
+
 
 # In this repository
 ### Pre-trained denoisers
@@ -29,6 +34,8 @@ Multiple commonly used [color](test_images/color) and [grayscale](test_images/gr
 
 ### Demo:
 The [Demo.ipynb](Demo.ipynb) contains code for loading a per-trained denoiser and using it to generate samples from the prior of natural images implicit in the denoiser. It also contains code for solving various linear inverse problems (e.g. inpainting, deblurring, super-resolution, randomly-dropped pixels, compressive sensing). Notice that there is no training involved for solving these problems, as long as there is a universal blind denoiser at hand. The algorithm simply uses the prior embedded in the denoiser to generate the missing parts of the partially measured image. 
+
+[Demo.ipynb](Demo.ipynb) can be executed on CPU or GPU. 
 
 ### Requirements 
 Here is the list of libraries you need to install to execute the code: 
