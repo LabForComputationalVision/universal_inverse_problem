@@ -1,5 +1,5 @@
 # Solving Linear Inverse Problems Using the Prior Implicit in a Denoiser
-Paper: https://arxiv.org/abs/2007.13640
+Paper: https://arxiv.org/abs/2007.13640 \
 Conference presentation: (Poster and video): 
 
 Visual images lie on a low-dimensional manifold, spanned by various natural deformations. Images on this manifold are approximately equally probable - at least locally. Probability of <img src="https://render.githubusercontent.com/render/math?math=x"> being a natural image, <img src="https://render.githubusercontent.com/render/math?math=p(x)">, is zero everywhere except for <img src="https://render.githubusercontent.com/render/math?math=x"> drawn from the manifold. 
