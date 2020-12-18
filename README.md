@@ -21,8 +21,7 @@ For a noisy observation, ![y=x+z](https://latex.codecogs.com/svg.latex?;y=x+z), 
 For Gaussian noise contamination, the least squares estimate can be written (exactly) as:\
 ![\hat{x}(y)=\intxp(x|y)dx](https://latex.codecogs.com/svg.latex?;\hat{x}(y)=\intxp(x|y)dx)\ 
 ![\hat{x}(y)=y+\sigma^2\nabla_y\log p(y)](https://latex.codecogs.com/svg.latex?;\hat{x}(y)=y+\sigma^2\nabla_y\log p(y)) 
-This is Miyasawa’s Empirical Bayes formulation (1961), which expresses the denoising operation in terms of the gradient of the prior predictive density, ![p(y)](https://latex.codecogs.com/svg.latex?;p(y))\ 
-.
+This is Miyasawa’s Empirical Bayes formulation (1961), which expresses the denoising operation in terms of the gradient of the prior predictive density, ![p(y)](https://latex.codecogs.com/svg.latex?;p(y)). 
 
 
 # In this repository
