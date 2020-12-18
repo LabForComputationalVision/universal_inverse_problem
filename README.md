@@ -1,4 +1,5 @@
 # Solving Linear Inverse Problems Using the Prior Implicit in a Denoiser
+![formula](https://render.githubusercontent.com/render/math?math=e^{i \pi} = -1)
 
 Visual images lie on a low-dimensional manifold, spanned by various natural deformations. Images on this manifold are approximately equally probable - at least locally. Probability of $x$ being a natural image, p(x), is zero everywhere except for x drawn from the manifold.
 N(0, σ2) is drawn from an observation density, p(y), which is a Gaussian-blurred version of the image prior.
