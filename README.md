@@ -29,9 +29,10 @@ Below, we show a two-dimensional simulation/visualization.End of red line segmen
 
 ### Drawing high-probability samples from the implicit prior
 Algorithm in a nutshell:
-• Use denoiser-defined gradient to go uphill in probability • Do this iteratively
-• On each step, effect noise decreases, and effective prior becomes less blurred. Gradient step size automatically adapts to each noise level.
-• This coarse to fine optimization procedure converges to a point on the manifold!
+• Use denoiser-defined gradient to go uphill in probability\ 
+• Do this iteratively\
+• On each step, effect noise decreases, and effective prior becomes less blurred. Gradient step size automatically adapts to each noise level.\
+• This coarse to fine optimization procedure converges to a point on the manifold!\
 
 
 
