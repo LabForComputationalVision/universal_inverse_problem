@@ -1,4 +1,6 @@
 # Solving Linear Inverse Problems Using the Prior Implicit in a Denoiser
+Paper: https://arxiv.org/abs/2007.13640
+Conference presentation: (Poster and video): 
 
 Visual images lie on a low-dimensional manifold, spanned by various natural deformations. Images on this manifold are approximately equally probable - at least locally. Probability of <img src="https://render.githubusercontent.com/render/math?math=x"> being a natural image, <img src="https://render.githubusercontent.com/render/math?math=p(x)">, is zero everywhere except for <img src="https://render.githubusercontent.com/render/math?math=x"> drawn from the manifold. 
 ![](figs/fig1.png?raw=true)
@@ -8,16 +10,21 @@ An observed image, <img src="https://render.githubusercontent.com/render/math?ma
 ![](figs/fig2.png?raw=true)
 
 
-## Pre-trained denoisers
+
+# In this repository
+### Pre-trained denoisers
 The directory [denoisers](denoisers) contains denoisers trained for removing Gaussian noise from natural images with the objective of minimizing mean square error. The prior embedded in a denoiser depends on the architecture of the model as well as the data used during training. The [denoisers](denoisers)  directory contains a separate folder for each denoiser with a specific architecture. The code for each architecture can be found in [code/network.py](code/network.py). Under each architecure directory, there are multiple folders for the denoiser trained on a particular dataset, and a specific noise range. 
 
-## Code
+### Code
 The code directory contains code for the [algorithm](code/algorithm_inv_prob.py), the pre-trained [denoisers architecture](code/network.py), and [helper functions](code/Utils_inverse_prob.py). 
 
-## test_images
+### test_images
 Multiple commonly used [color](test_images/color) and [grayscale](test_images/grayscale) image datasets are uploaded in the test_images directory.
 
-## Requirements 
+### Demo:
+
+
+### Requirements 
 Here is the list of libraries you need to install to execute the code: 
 
 python  3.7.6 \
