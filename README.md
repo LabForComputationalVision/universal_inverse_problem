@@ -11,9 +11,11 @@ An observed image, <img src="https://render.githubusercontent.com/render/math?ma
 ![](figs/fig2.png)
 
 ### Least squares denoising
-Noisy observation: <img src="https://render.githubusercontent.com/render/math?math=y=x + z">
+For a noisy observation: <img src="https://render.githubusercontent.com/render/math?math=y=x {+} z">
 The least squares estimate of the true signal is the conditional mean of the posterior:
  <img src="https://render.githubusercontent.com/render/math?math=\hat{x}(y) = min\int||\hat{x}-x||^2p(x|y)dx">
+ <img src="https://render.githubusercontent.com/render/math?math=min_{\hat{x}}\int x p(x|y)dx">
+ <img src="https://render.githubusercontent.com/render/math?math=\int x \frac{p(y|x)p(x)}{p(y)}dx">
 
 # In this repository
 ### Pre-trained denoisers
