@@ -4,7 +4,7 @@ Zahra Kadkhodaie, Eero P. Simoncelli,<br>
 
 ### Image priors, manifolds, and noisy observations
 Visual images lie on a low-dimensional manifold, spanned by various natural deformations. Images on this manifold are approximately equally probable - at least locally. Probability of <img src="https://render.githubusercontent.com/render/math?math=x"> being a natural image, <img src="https://render.githubusercontent.com/render/math?math=p(x)">, is zero everywhere except for <img src="https://render.githubusercontent.com/render/math?math=x"> drawn from the manifold. 
-![](figs/fig1.pngs=200)
+![](figs/fig1.png)
 
 An observed image, <img src="https://render.githubusercontent.com/render/math?math=y">, contaminated with Gaussian noise, <img src="https://render.githubusercontent.com/render/math?math=z\sim \mathcal N(0,\sigma^2)"> is drawn from an observation density, <img src="https://render.githubusercontent.com/render/math?math=p(y)">, which is a Gaussian-blurred version of the image prior. Moreover, the family of observation densities over different noise variances, <img src="https://render.githubusercontent.com/render/math?math=p_{\sigma}(y)">, forms a Gaussian scale-space representation of the prior analogous to the temporal evolution of a diffusion process
 
@@ -13,8 +13,7 @@ An observed image, <img src="https://render.githubusercontent.com/render/math?ma
 ### Least squares denoising
 Noisy observation: <img src="https://render.githubusercontent.com/render/math?math=y=x + z">
 The least squares estimate of the true signal is the conditional mean of the posterior:
-![\Large x=\frac{-b\pm\sqrt{b^2-4ac}}{2a}](https://latex.codecogs.com/svg.latex?\Large&space;x=\frac{-b\pm\sqrt{b^2-4ac}}{2a}) 
-
+ <img src="https://render.githubusercontent.com/render/math?math=\hat{x}(y) = min\int||\hat{x}-x||^2p(x|y)dx">
 
 # In this repository
 ### Pre-trained denoisers
