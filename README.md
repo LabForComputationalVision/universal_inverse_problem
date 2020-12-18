@@ -1,10 +1,9 @@
 # Solving Linear Inverse Problems Using the Prior Implicit in a Denoiser
-<img src="https://render.githubusercontent.com/render/math?math=e^{i \pi} = -1">
 
-Visual images lie on a low-dimensional manifold, spanned by various natural deformations. Images on this manifold are approximately equally probable - at least locally. Probability of <img src="https://render.githubusercontent.com/render/math?math=x"> being a natural image, <img src="https://render.githubusercontent.com/render/math?math=p(x)">, is zero everywhere except for <img src="https://render.githubusercontent.com/render/math?math=x"> drawn from the manifold. An observed image, y, contaminated with Gaussian noise, z ~ N(0, σ2) is drawn from an observation density, p(y), which is a Gaussian-blurred version of the image prior.
+Visual images lie on a low-dimensional manifold, spanned by various natural deformations. Images on this manifold are approximately equally probable - at least locally. Probability of <img src="https://render.githubusercontent.com/render/math?math=x"> being a natural image, <img src="https://render.githubusercontent.com/render/math?math=p(x)">, is zero everywhere except for <img src="https://render.githubusercontent.com/render/math?math=x"> drawn from the manifold. An observed image, <img src="https://render.githubusercontent.com/render/math?math=y">, contaminated with Gaussian noise, <img src="https://render.githubusercontent.com/render/math?math=z\sim N(0,\sigma^2)"> is drawn from an observation density, p(y), which is a Gaussian-blurred version of the image prior.
 Moreover, the family of observation densities over different noise variances, pσ(y), forms a Gaussian scale-space representation of the prior analogous to the temporal evolution of a diffusion process
 
-![alt text](test.png?raw=true)
+![](test.png?raw=true)
 
 
 ## Pre-trained denoisers
