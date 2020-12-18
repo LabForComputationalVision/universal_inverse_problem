@@ -17,6 +17,8 @@ The least squares estimate of the true signal is the conditional mean of the pos
  <img src="https://render.githubusercontent.com/render/math?math=\int x p(x|y)dx">\
  <img src="https://render.githubusercontent.com/render/math?math=\int x \frac{p(y|x)p(x)}{p(y)}dx">\
 
+![\Large \hat{x}(y) = min_{\hat{x}}\int||\hat{x}-x||^2p(x|y)dx](https://latex.codecogs.com/svg.latex?\Large&space;\hat{x}(y) = min_{\hat{x}}\int||\hat{x}-x||^2p(x|y)dx) 
+
 # In this repository
 ### Pre-trained denoisers
 The directory [denoisers](denoisers) contains denoisers trained for removing Gaussian noise from natural images with the objective of minimizing mean square error. The prior embedded in a denoiser depends on the architecture of the model as well as the data used during training. The [denoisers](denoisers)  directory contains a separate folder for each denoiser with a specific architecture. The code for each architecture can be found in [code/network.py](code/network.py). Under each architecure directory, there are multiple folders for the denoiser trained on a particular dataset, and a specific noise range. 
