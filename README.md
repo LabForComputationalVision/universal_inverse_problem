@@ -18,7 +18,7 @@ For a noisy observation, ![y=x+z](https://latex.codecogs.com/svg.latex?;y=x+z), 
 
 ### Exposing the implicit prior through Empirical Bayes estimation
 For Gaussian noise contamination, the least squares estimate can be written (exactly) as:\
-![\hat{x}(y)=\int x p(x|y)dx](https://latex.codecogs.com/svg.latex?;\hat{x}(y)=\intxp(x|y)dx) 
+![\hat{x}(y)=\intxp(x|y)dx](https://latex.codecogs.com/svg.latex?;\hat{x}(y)=\intxp(x|y)dx) 
 
 
 
@@ -40,7 +40,7 @@ The [Demo.ipynb](Demo.ipynb) contains code for loading a per-trained denoiser an
 ### Requirements 
 Here is the list of libraries you need to install to execute the code: 
 
-python  3.7.6 \
+python  3.7.6 
 
 numpy 1.19.4 \
 skimage 0.17.2 \
@@ -48,6 +48,6 @@ matplotlib 1.19.4 \
 PyTorch 1.7.0 \
 argparse 1.1 \
 os \
-time \ 
+time\ 
 sys \
 gzip 
