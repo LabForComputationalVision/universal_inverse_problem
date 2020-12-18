@@ -17,6 +17,12 @@ Multiple commonly used [color](test_images/color) and [grayscale](test_images/gr
 ## Requirements 
 Here is the list of libraries you need to install to execute the code: 
 
-
-## Citation
-
+numpy 1.19.4
+skimage 0.17.2
+matplotlib 1.19.4
+PyTorch 1.7.0
+argparse 1.1
+os
+time 
+sys
+gzip
