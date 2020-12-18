@@ -1,5 +1,8 @@
 # Solving Linear Inverse Problems Using the Prior Implicit in a Denoiser
-Paper: https://arxiv.org/abs/2007.13640 \
+
+<b>Solving Linear Inverse Problems Using the Prior Implicit in a Denoiser</b><br>
+Zahra Kadkhodaie, Eero P. Simoncelli,<br>
+Paper: https://arxiv.org/abs/2007.13640 
 
 ### Image priors, manifolds, and noisy observations
 Visual images lie on a low-dimensional manifold, spanned by various natural deformations. Images on this manifold are approximately equally probable - at least locally. Probability of <img src="https://render.githubusercontent.com/render/math?math=x"> being a natural image, <img src="https://render.githubusercontent.com/render/math?math=p(x)">, is zero everywhere except for <img src="https://render.githubusercontent.com/render/math?math=x"> drawn from the manifold. 
@@ -10,7 +13,7 @@ An observed image, <img src="https://render.githubusercontent.com/render/math?ma
 ![](figs/fig2.png?raw=true)
 
 ### Least squares denoising
-Noisy observation: <img src="https://render.githubusercontent.com/render/math?math=y=x+z">
+Noisy observation: <img src="https://render.githubusercontent.com/render/math?math=y=x + z">
 The least squares estimate of the true signal is the conditional mean of the posterior:
 
 
