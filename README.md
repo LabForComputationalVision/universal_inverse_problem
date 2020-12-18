@@ -2,7 +2,7 @@
 
 This page contains source code related to the paper "universal ... ": 
 
-![alt text](unversalInverse2-reversed.pdf)
+![alt text](unversalInverse2_reversed.pdf)
 
 multiple BF_CNN denoisers, trained on different datasets
 test images 
