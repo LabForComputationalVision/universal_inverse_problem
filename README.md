@@ -18,7 +18,7 @@ The least squares estimate of the true signal is the conditional mean of the pos
  <img src="https://render.githubusercontent.com/render/math?math=\int x \frac{p(y|x)p(x)}{p(y)}dx">\
 
 ![\Large \hat{x}(y)=min{\hat{x}}\int||\hat{x}-x||^2p(x|y)dx](https://latex.codecogs.com/svg.latex?\Large&space;\hat{x}(y)=min_{\hat{x}}\int||\hat{x}-x||^2p(x|y)dx) 
-![\Large \intxp(x|y)dx](https://latex.codecogs.com/svg.latex?\Large&space;\intxp(x|y)dx) 
+![\Large \int x p(x|y)dx](https://latex.codecogs.com/svg.latex?\Large&space;\intxp(x|y)dx) 
 
 
 # In this repository
