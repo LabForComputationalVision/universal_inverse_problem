@@ -28,20 +28,32 @@ Below, we show a two-dimensional simulation/visualization.End of red line segmen
 ![](figs/fig4.png)
 
 ### Drawing high-probability samples from the implicit prior
+
+
 Algorithm in a nutshell:
 • Use denoiser-defined gradient to go uphill in probability \ 
 • Do this iteratively \
 • On each step, effect noise decreases, and effective prior becomes less blurred. Gradient step size automatically adapts to each noise level. \
 • This coarse to fine optimization procedure converges to a point on the manifold! \
 
+Two-dimensional visualization: trajectory of our iterative coarse-to-fine inverse algorithm
+![](figs/fig8.png)
+
 Click [here]() to watch a video of an animation of the two-dimensional simulatoin.
 
+Two sequences of images, yt, from the iterative sampling procedure, with different initializations, y0, and no added noise (β = 1).
 ![](figs/fig5.png)
+
+More samples arising from different inializations. 
+A moderate level of noise (β = 0.5) is injected in each iteration. 
 ![](figs/fig6.png)
+A high level of injected noise (β = 0.1).
 ![](figs/fig7.png)
 
 
 ### Solving linear inverse problems using the implicit prior
+![](figs/fig9.png)
+
 Given a set of linear measurements of an image, xc = M T x, where M is a low-rank measurement matrix, we use an enhanced version of our algorithm to recover the original image
 
 
