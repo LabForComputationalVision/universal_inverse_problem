@@ -16,8 +16,7 @@ from network import BF_CNN
 def load_denoiser(architecture,grayscale, training_data, training_noise): 
     if architecture=='BF_CNN': 
         model = load_BF_CNN(grayscale, training_data, training_noise)
-    else: 
-        pass
+
         
     return model
 
