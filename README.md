@@ -1,5 +1,4 @@
-# Solving Linear Inverse Problems Using the Prior Implicit in a Denoiser
-
+# Overview 
 <b>Solving Linear Inverse Problems Using the Prior Implicit in a Denoiser</b><br>
 Zahra Kadkhodaie, Eero P. Simoncelli,<br>
 Paper: https://arxiv.org/abs/2007.13640 
