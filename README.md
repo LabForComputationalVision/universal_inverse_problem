@@ -6,7 +6,7 @@ Prior probability models are a central component of many image processing proble
 
 
 ## Pre-trained denoisers
-The directory ['denoisers'](denoisers) contains denoisers trained for removing Gaussian noise from natural images with the objective of minimizing mean square error. The prior embedded in a denoiser depends on the architecture of the model as well as the data used during training. This directory contains a separate folder for each denoiser with a specific architecture. The code for each architecture can be found in ['code/network.py']('code/network.py') 
+The directory ['denoisers'](denoisers) contains denoisers trained for removing Gaussian noise from natural images with the objective of minimizing mean square error. The prior embedded in a denoiser depends on the architecture of the model as well as the data used during training. This directory contains a separate folder for each denoiser with a specific architecture. The code for each architecture can be found in ['code/network.py'](code/network.py) 
 
 ## Requirements 
 Here is the list of libraries you need to install to execute the code:
