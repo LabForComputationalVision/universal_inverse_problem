@@ -1,10 +1,10 @@
 # Solving Linear Inverse Problems Using the Prior Implicit in a Denoiser 
-Paper: https://arxiv.org/abs/2007.13640 
+Paper: https://arxiv.org/abs/2007.13640 \
 Zahra Kadkhodaie, Eero P. Simoncelli,<br>
 
 ### Image priors, manifolds, and noisy observations
 Visual images lie on a low-dimensional manifold, spanned by various natural deformations. Images on this manifold are approximately equally probable - at least locally. Probability of <img src="https://render.githubusercontent.com/render/math?math=x"> being a natural image, <img src="https://render.githubusercontent.com/render/math?math=p(x)">, is zero everywhere except for <img src="https://render.githubusercontent.com/render/math?math=x"> drawn from the manifold. 
-![](figs/fig1.png?raw=true)
+![](figs/fig1.png?raw=true=100x20)
 
 An observed image, <img src="https://render.githubusercontent.com/render/math?math=y">, contaminated with Gaussian noise, <img src="https://render.githubusercontent.com/render/math?math=z\sim \mathcal N(0,\sigma^2)"> is drawn from an observation density, <img src="https://render.githubusercontent.com/render/math?math=p(y)">, which is a Gaussian-blurred version of the image prior. Moreover, the family of observation densities over different noise variances, <img src="https://render.githubusercontent.com/render/math?math=p_{\sigma}(y)">, forms a Gaussian scale-space representation of the prior analogous to the temporal evolution of a diffusion process
 
