@@ -24,7 +24,15 @@ For Gaussian noise contamination, the least squares estimate can be written (exa
 
 This is Miyasawa’s Empirical Bayes formulation (1961), which expresses the denoising operation in terms of the gradient of the prior predictive density, ![p(y)](https://latex.codecogs.com/svg.latex?;p(y)). 
 Below, we show a two-dimensional simulation/visualization.End of red line segments shows the least-squares optimal denoising solution ![\hat{x}](https://latex.codecogs.com/svg.latex?;\hat{x}) for each noisy signal, ![y](https://latex.codecogs.com/svg.latex?;y).
+
 ![](figs/fig4.png)
+
+### Drawing high-probability samples from the implicit prior
+Algorithm in a nutshell:
+• Use denoiser-defined gradient to go uphill in probability • Do this iteratively
+• On each step, effect noise decreases, and effective prior becomes less blurred. Gradient step size automatically adapts to each noise level.
+• This coarse to fine optimization procedure converges to a point on the manifold!
+
 
 
 # In this repository
