@@ -268,7 +268,7 @@ def plot_corrupted_im(x_c):
     
 
 def print_dim(measurment_dim, image_dim):
-    print('*** Retained {} / {} ({}%) of pixels'.format(int(measurment_dim), image_dim
+    print('*** Retained {} / {} ({}%) of dimensions'.format(int(measurment_dim), image_dim
                                                    , np.round(int(measurment_dim)/int(image_dim)*100,
                                                               decimals=3) ))    
     
