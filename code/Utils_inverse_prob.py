@@ -176,7 +176,7 @@ def plot_sample(x, corrupted, sample):
         h_diff = x.size()[0] - corrupted.size()[0]
         w_diff = x.size()[1] - corrupted.size()[1]
         x = x[0:x.size()[0]-h_diff,0:x.size()[1]-w_diff,: ]
-        print('WARNING: psnr and ssim calculated using a cropped original image, because the original image is not divisible by the downsampling scale factor.')
+        print('NOTE: psnr and ssim calculated using a cropped original image, because the original image is not divisible by the downsampling scale factor.')
         
     f, axs = plt.subplots(1,3, figsize = (15,5))
     axs = axs.ravel()        
@@ -266,6 +266,11 @@ def plot_corrupted_im(x_c):
 
     plt.colorbar()    
     
+
+def print_dim(measurment_dim, image_dim):
+    print('*** Retained {} / {} ({}%) of pixels'.format(int(measurment_dim), image_dim
+                                                   , np.round(int(measurment_dim)/int(image_dim)*100,
+                                                              decimals=3) ))    
     
 ###################################### Inverse problems Tasks ##################################
 #############################################################################################
@@ -313,11 +318,13 @@ class rand_pixels:
     def __init__(self, x_size, p):
         super(rand_pixels, self).__init__()
 
-        self.mask = torch.tensor(np.random.binomial(n=1, p=p, size = x_size ))
+        self.mask = np.zeros(x_size).flatten()
+        self.mask[0:int(p*np.prod(x_size))] = 1
+        self.mask = torch.tensor(np.random.choice(self.mask, size = x_size , replace = False).astype('float32').reshape(x_size))
         if torch.cuda.is_available():
-            self.mask = self.mask.cuda()
-
-    def M_T(self, x):
+            self.mask = self.mask.cuda()        
+        
+    def M_T(self, x):                                                                                                       
         return x*self.mask
 
     def M(self, x):
@@ -335,8 +342,8 @@ class super_resolution:
     def __init__(self, x_size, s):
         super(super_resolution, self).__init__()
 
-        if x_size[1]%2 !=0 or x_size[2]%2 != 0 :
-            raise Exception("image dimensions need to be even")
+#         if x_size[1]%2 !=0 or x_size[2]%2 != 0 :
+#             raise Exception("image dimensions need to be even")
 
         self.down_sampling_kernel = torch.ones(x_size[0],1,s,s)
         self.down_sampling_kernel = self.down_sampling_kernel/np.linalg.norm(self.down_sampling_kernel[0,0])
@@ -391,20 +398,25 @@ class spectral_super_resolution:
         super(spectral_super_resolution, self).__init__()
 
         self.x_size = x_size
-        f1 = int(x_size[1]*p/2)
-        f2 = int(x_size[2]*p/2)
+        
+        xf = int(round(x_size[1]*np.sqrt(p) )/2)
+        yf = int(round(x_size[1]*x_size[2]*p/xf )/4)
+                
         mask = torch.ones((x_size[1],x_size[2]))
-        mask[f1+1:x_size[1]-f1,:]=0
-        mask[:, f2+1:x_size[2]-f2]=0
+
+        mask[xf:x_size[1]-xf,:]=0
+        mask[:, yf:x_size[2]-yf]=0        
         self.mask = mask
         if torch.cuda.is_available():
             self.mask = self.mask.cuda()
 
     def M_T(self, x):
-        return self.mask*torch.fft.fftn(x, norm= 'ortho', s = (self.x_size[1], self.x_size[2]) )
+        # returns fft of each of the three color channels independently
+        return self.mask*torch.fft.fftn(x, norm= 'ortho', dim = (1,2),s = (self.x_size[1], self.x_size[2]) )
 
     def M(self, x):
-        return torch.real(torch.fft.ifftn(x, norm= 'ortho', s = (self.x_size[1], self.x_size[2]) ))
+        return torch.real(torch.fft.ifftn(x, norm= 'ortho',  dim = (1,2), s = (self.x_size[1], self.x_size[2]) ))
+
 
 
 

@@ -4,19 +4,22 @@ import time
 import os
 
 
-### all in pytorch. Takes a tensor of size (n_ch, im_d1, im_d2)
+
+### Takes a tensor of size (n_ch, im_d1, im_d2)
 ### and returns a tensor of size (n_ch, im_d1, im_d2)
-def univ_inv_sol(model, x_c , M_T , M  ,sig_0, sig_L, h0 , beta , freq, save_interm):
+def univ_inv_sol(model, x_c ,task ,sig_0=1, sig_L=.01, h0=.01 , beta=.01 , freq=5):
     '''
     @x_c:  M^T.x)
-    @M: low rank measurement matrix - in function form
+    @task: the specific linear inverse problem
     @sig_0: initial sigma (largest)
     @sig_L: final sigma (smallest)
     @h0: 1st step size
     @beta:controls added noise in each iteration (0,1]. if 1, no noise is added. As it decreases more noise added.
-    @freq: if save_interm is true, outputs will be stored with this frequency
     '''
-
+    
+    M_T = task.M_T #low rank measurement matrix - in function form
+    M = task.M #inverse of M_T
+    
     n_ch, im_d1,im_d2 = M(x_c).size()
     N = n_ch* im_d1*im_d2
     intermed_Ys=[]
@@ -27,7 +30,7 @@ def univ_inv_sol(model, x_c , M_T , M  ,sig_0, sig_L, h0 , beta , freq, save_int
     y = y.unsqueeze(0)
     y.requires_grad = False
 
-    if save_interm is True:
+    if freq > 0:
         intermed_Ys.append(y.squeeze(0))
 
 
@@ -63,12 +66,10 @@ def univ_inv_sol(model, x_c , M_T , M  ,sig_0, sig_L, h0 , beta , freq, save_int
 
         y = y -  h*d + gamma*noise
 
-        if t%freq== 0:
+        if freq > 0 and t%freq== 0:
             print('-----------------------------', t)
             print('sigma ' , sigma.item() )
-
-            if save_interm is True:
-                intermed_Ys.append(y.squeeze(0))
+            intermed_Ys.append(y.squeeze(0))
 
 
         t +=1
@@ -78,7 +79,6 @@ def univ_inv_sol(model, x_c , M_T , M  ,sig_0, sig_L, h0 , beta , freq, save_int
     print("-------- average time per iteration (s), " , np.round((time.time() - start_time_total)/(t-1)  ,4) )
 
     denoised_y = y - model(y)
-
 
 
     return denoised_y.squeeze(0), intermed_Ys
