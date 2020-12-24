@@ -43,6 +43,7 @@ Click [here]() to watch a video of an animation of the two-dimensional simulatoi
 
 Two sequences of images, yt, from the iterative sampling procedure, with different initializations, y0, and added noise, β:
 ![](figs/synthesis_progression.png)
+![](figs/synthesis_progression1.png)
 ![](figs/synthesis_color_4.png)
 ![](figs/synthesis_color_2.png)
 ![](figs/synthesis_mnist_1.png)
