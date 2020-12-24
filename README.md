@@ -74,13 +74,15 @@ Given a set of linear measurements of an image, xc = M T x, where M is a low-ran
 
 #### Spectral super resolution 
 10% of fourier coefficients retained (low frequencies)
-![](figs/deblur_butterfly.png)
 ![](figs/deblur_gray2.png)
+![](figs/deblur_butterfly.png)
 ![](figs/deblur_mnist.png)
 
 #### random basis - compressive sensing
 Dimensionality reduced to 10%.
+![](figs/rand_basis_gray.png)
 ![](figs/rand_basis_soldier.png)
+![](figs/rand_basis_mnist.png)
 
 
 # In this repository
