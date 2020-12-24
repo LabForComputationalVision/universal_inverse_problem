@@ -55,9 +55,9 @@ Two sequences of images, yt, from the iterative sampling procedure, with differe
 Given a set of linear measurements of an image, xc = M T x, where M is a low-rank measurement matrix, we use an enhanced version of our algorithm to recover the original image
 
 #### Inpainting
+![](figs/inpaint_gray.png)
 ![](figs/inpaint_samples_flower.png)
 ![](figs/inpaint_mnist.png)
-![](figs/inpaint_samples_zebra.png)
 #### Missing random pixels
 10% of pixels retained 
 ![](figs/random_pix_samples_zebra.png)
