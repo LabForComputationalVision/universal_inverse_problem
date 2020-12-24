@@ -76,7 +76,7 @@ Given a set of linear measurements of an image, xc = M T x, where M is a low-ran
 
 #### random basis - compressive sensing
 Dimensionality reduced to 10%.
-![](figs/deblur_butterfly.png)
+![](figs/rand_basis_soldier.png)
 
 
 # In this repository
