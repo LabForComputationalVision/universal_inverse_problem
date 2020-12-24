@@ -41,14 +41,12 @@ Two-dimensional visualization: trajectory of our iterative coarse-to-fine invers
 
 Click [here]() to watch a video of an animation of the two-dimensional simulatoin.
 
-Two sequences of images, yt, from the iterative sampling procedure, with different initializations, y0, and no added noise (β = 1).
-![](figs/synthesis_progression4.png)
-With added noise (β = 0.5).
+Two sequences of images, yt, from the iterative sampling procedure, with different initializations, y0, and added noise, β:
 ![](figs/synthesis_progression.png)
-![](figs/synthesis_progression2.png)
-With added noise (β = 0.1).
-![](figs/synthesis_progression5.png)
-
+![](figs/synthesis_color_4.png)
+![](figs/synthesis_color_2.png)
+![](figs/synthesis_mnist_1.png)
+![](figs/synthesis_mnist_2.png)
 
 ### Solving linear inverse problems using the implicit prior
 ![](figs/fig9.png)
