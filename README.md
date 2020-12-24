@@ -46,6 +46,8 @@ Two sequences of images, yt, from the iterative sampling procedure, with differe
 With added noise (β = 0.5).
 ![](figs/synthesis_progression.png)
 ![](figs/synthesis_progression2.png)
+With added noise (β = 0.1).
+![](figs/synthesis_progression5.png)
 
 More samples arising from different inializations. 
 A moderate level of noise (β = 0.5) is injected in each iteration. 
