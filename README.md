@@ -56,7 +56,7 @@ Given a set of linear measurements of an image, xc = M T x, where M is a low-ran
 
 #### Inpainting
 ![](figs/inpaint_samples_flower.png)
-![](figs/inpaint_samples_vase.png)
+![](figs/inpaint_mnist.png)
 ![](figs/inpaint_samples_zebra.png)
 #### Missing random pixels
 10% of pixels retained 
