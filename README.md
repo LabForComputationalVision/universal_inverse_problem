@@ -49,12 +49,6 @@ With added noise (β = 0.5).
 With added noise (β = 0.1).
 ![](figs/synthesis_progression5.png)
 
-More samples arising from different inializations. 
-A moderate level of noise (β = 0.5) is injected in each iteration. 
-![](figs/fig6.png)
-A high level of injected noise (β = 0.1).
-![](figs/fig7.png)
-
 
 ### Solving linear inverse problems using the implicit prior
 ![](figs/fig9.png)
