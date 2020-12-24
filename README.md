@@ -67,10 +67,10 @@ Given a set of linear measurements of an image, xc = M T x, where M is a low-ran
 ![](figs/random_pix_samples_zebra.png)
 
 #### Super resolution
-2x super resolution 
-![](figs/super_res_flower.png)
-4x super resolution 
+4x super resolution (~6% dimensions retained )
+![](figs/super_res_gray.png)
 ![](figs/super_res_pepper.png)
+![](figs/super_res_mnist.png)
 
 #### Spectral super resolution 
 10% of fourier coefficients retained (low frequencies)
