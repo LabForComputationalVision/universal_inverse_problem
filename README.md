@@ -42,9 +42,10 @@ Two-dimensional visualization: trajectory of our iterative coarse-to-fine invers
 Click [here]() to watch a video of an animation of the two-dimensional simulatoin.
 
 Two sequences of images, yt, from the iterative sampling procedure, with different initializations, y0, and no added noise (β = 1).
+![](figs/synthesis_progression4.png)
+With added noise (β = 0.5).
 ![](figs/synthesis_progression.png)
 ![](figs/synthesis_progression2.png)
-![](figs/synthesis_progression3.png)
 
 More samples arising from different inializations. 
 A moderate level of noise (β = 0.5) is injected in each iteration. 
