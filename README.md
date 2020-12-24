@@ -55,6 +55,8 @@ A high level of injected noise (β = 0.1).
 ![](figs/fig9.png)
 
 Given a set of linear measurements of an image, xc = M T x, where M is a low-rank measurement matrix, we use an enhanced version of our algorithm to recover the original image
+
+#### Inpainting
 ![](figs/inpaint_samples_flower.png)
 ![](figs/inpaint_samples_vase.png)
 ![](figs/inpaint_samples_zebra.png)
