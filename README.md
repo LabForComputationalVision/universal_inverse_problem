@@ -61,14 +61,22 @@ Given a set of linear measurements of an image, xc = M T x, where M is a low-ran
 ![](figs/inpaint_samples_vase.png)
 ![](figs/inpaint_samples_zebra.png)
 #### Missing random pixels
+10% of pixels retained 
+![](figs/random_pix_samples_zebra.png)
+
 #### Super resolution
+2x super resolution 
 ![](figs/super_res_flower.png)
+4x super resolution 
 ![](figs/super_res_pepper.png)
 
 #### Spectral super resolution 
+10% of fourier coefficients retained (low frequencies)
 ![](figs/deblur_butterfly.png)
 
 #### random basis - compressive sensing
+Dimensionality reduced to 10%.
+![](figs/deblur_butterfly.png)
 
 
 # In this repository
