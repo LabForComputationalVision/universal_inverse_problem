@@ -12,37 +12,38 @@ An observed image, <img src="https://render.githubusercontent.com/render/math?ma
 
 ### Least squares denoising
 For a noisy observation, ![y=x+z](https://latex.codecogs.com/svg.latex?;y=x+z), the least squares estimate of the true signal is the conditional mean of the posterior:\
-![](https://latex.codecogs.com/svg.latex?;\hat{x}(y)=min_{\hat{x}}\int||\hat{x}-x||^2p(x|y)dx) 
+![](https://latex.codecogs.com/svg.latex?\hat{x}(y)=min_{\hat{x}}\int||\hat{x}-x||^2p(x|y)dx) 
 
-![](https://latex.codecogs.com/svg.latex?;\hat{x}(y)=\intxp(x|y)dx) 
+![](https://latex.codecogs.com/svg.latex?\hat{x}(y)=\int(xp(x|y)dx)) 
 
 ![](figs/fig3.png)
 
 ### Exposing the implicit prior through Empirical Bayes estimation
-For Gaussian noise contamination, the least squares estimate can be written (exactly) as:\
-![\hat{x}(y)=\intxp(x|y)dx](https://latex.codecogs.com/svg.latex?;\hat{x}(y)=\intxp(x|y)dx)\ 
-![\hat{x}(y)=y+\sigma^2\nabla_y\log p(y)](https://latex.codecogs.com/svg.latex?;\hat{x}(y)=y+\sigma^2\nabla_y\log p(y)) 
+For Gaussian noise contamination, the least squares estimate can be written (exactly) as:
 
-This is Miyasawa’s Empirical Bayes formulation (1961), which expresses the denoising operation in terms of the gradient of the prior predictive density, ![p(y)](https://latex.codecogs.com/svg.latex?;p(y)). 
-Below, we show a two-dimensional simulation/visualization.End of red line segments shows the least-squares optimal denoising solution ![\hat{x}](https://latex.codecogs.com/svg.latex?;\hat{x}) for each noisy signal, ![y](https://latex.codecogs.com/svg.latex?;y).
+![](https://latex.codecogs.com/svg.latex?\hat{x}(y)=\int(xp(x|y)dx))
+
+![](https://latex.codecogs.com/svg.latex?\hat{x}(y)=y+\sigma^2\nabla_y\log(p(y))) 
+
+This is Miyasawa’s Empirical Bayes formulation (1961), which expresses the denoising operation in terms of the gradient of the prior predictive density, ![p(y)](https://latex.codecogs.com/svg.latex?p(y)). 
+Below, we show a two-dimensional simulation/visualization.End of red line segments shows the least-squares optimal denoising solution ![\hat{x}](https://latex.codecogs.com/svg.latex?\hat{x}) for each noisy signal, ![y](https://latex.codecogs.com/svg.latex?;y).
 
 ![](figs/fig4.png)
 
 ### Drawing high-probability samples from the implicit prior
 
-
 Algorithm in a nutshell:
-• Use denoiser-defined gradient to go uphill in probability \ 
-• Do this iteratively \
-• On each step, effect noise decreases, and effective prior becomes less blurred. Gradient step size automatically adapts to each noise level. \
-• This coarse to fine optimization procedure converges to a point on the manifold! \
+* Use denoiser-defined gradient to go uphill in probability 
+*  Do this iteratively 
+* On each step, effect noise decreases, and effective prior becomes less blurred. Gradient step size automatically adapts to each noise level. 
+* This coarse to fine optimization procedure converges to a point on the manifold! 
 
 Two-dimensional visualization: trajectory of our iterative coarse-to-fine inverse algorithm
 ![](figs/fig8.png)
 
 Click [here]() to watch a video of an animation of the two-dimensional simulatoin.
 
-Two sequences of images, yt, from the iterative sampling procedure, with different initializations, y0, and added noise, β:
+Sequences of images, ![](https://latex.codecogs.com/svg.latex?y_t), from the iterative sampling procedure, with different initializations, ![](https://latex.codecogs.com/svg.latex?y_0), and added noise, ![](https://latex.codecogs.com/svg.latex?\beta):
 ![](figs/synthesis_progression.png)
 ![](figs/synthesis_progression2.png)
 ![](figs/synthesis_color_4.png)
@@ -53,7 +54,7 @@ Two sequences of images, yt, from the iterative sampling procedure, with differe
 ### Solving linear inverse problems using the implicit prior
 ![](figs/fig9.png)
 
-Given a set of linear measurements of an image, xc = M T x, where M is a low-rank measurement matrix, we use an enhanced version of our algorithm to recover the original image
+Given a set of linear measurements of an image, ![](https://latex.codecogs.com/svg.latex?x_c) = ![](https://latex.codecogs.com/svg.latex?M^Tx), where M is a low-rank measurement matrix, we use an enhanced version of our algorithm to recover the original image
 
 #### Inpainting
 ![](figs/inpaint_gray.png)
