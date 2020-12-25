@@ -14,7 +14,7 @@ An observed image, <img src="https://render.githubusercontent.com/render/math?ma
 For a noisy observation, ![y=x+z](https://latex.codecogs.com/svg.latex?;y=x+z), the least squares estimate of the true signal is the conditional mean of the posterior:\
 ![](https://latex.codecogs.com/svg.latex?;\hat{x}(y)=min_{\hat{x}}\int||\hat{x}-x||^2p(x|y)dx) 
 
-![\hat{x}=\int xp(x|y)dx](https://latex.codecogs.com/svg.latex?;\hat{x}(y)=\int xp(x|y)dx) 
+![](https://latex.codecogs.com/svg.latex?;\hat{x}(y)=\intxp(x|y)dx) 
 
 ![](figs/fig3.png)
 
