@@ -87,7 +87,7 @@ Sequences of images, ![](https://latex.codecogs.com/svg.latex?y_t), from the ite
 ### Solving linear inverse problems using the implicit prior
 Given a set of linear measurements of an image, ![](https://latex.codecogs.com/svg.latex?x_c) = ![](https://latex.codecogs.com/svg.latex?M^Tx), where M is a low-rank measurement matrix, we use an enhanced version of our algorithm to recover the original image. This is equivalent to restricting the algorithm to converge to the intersection of the manifold and the hyperplane spanned by the column space of M. To demonstrate this, we show partially linearly measured images and their reconstrcution for 5 different types of measurement matrices, M. 
 
-<img src="figs/fig8.png" width="250" height="250">
+<img src="figs/fig9.png" width="250" height="250">
 
 #### 1. Inpainting
 ![](figs/inpaint_gray.png)
@@ -108,7 +108,7 @@ Given a set of linear measurements of an image, ![](https://latex.codecogs.com/s
 ![](figs/super_res_mnist.png)
 
 #### 4. Spectral super resolution 
-10% of fourier coefficients retained (low frequencies)
+10% of Fourier coefficients retained (low frequencies)
 ![](figs/deblur_gray2.png)
 ![](figs/deblur_butterfly.png)
 ![](figs/deblur_mnist.png)
