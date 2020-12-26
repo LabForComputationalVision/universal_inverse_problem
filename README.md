@@ -90,6 +90,8 @@ Given a set of linear measurements of an image, ![](https://latex.codecogs.com/s
 <img src="figs/fig9.png" width="250" height="250">
 
 #### 1. Inpainting
+With different initializations and different addetive noise, the trajectory ends on different parts of the manifold. For each original image below, we see three high probable samples, all of which look natural. 
+
 ![](figs/inpaint_gray.png)
 ![](figs/inpaint_samples_flower.png)
 ![](figs/inpaint_mnist.png)
