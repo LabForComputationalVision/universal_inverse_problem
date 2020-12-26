@@ -2,6 +2,7 @@
 Paper: https://arxiv.org/abs/2007.13640 \
 Zahra Kadkhodaie, Eero P. Simoncelli,<br>
 
+## Summary
 ### Image priors, manifolds, and noisy observations
 Visual images lie on a low-dimensional manifold, spanned by various natural deformations. Images on this manifold are approximately equally probable - at least locally. Probability of <img src="https://render.githubusercontent.com/render/math?math=x"> being a natural image, <img src="https://render.githubusercontent.com/render/math?math=p(x)">, is zero everywhere except for <img src="https://render.githubusercontent.com/render/math?math=x"> drawn from the manifold. 
 ![](figs/fig1.png)
@@ -13,21 +14,18 @@ An observed image, <img src="https://render.githubusercontent.com/render/math?ma
 ### Least squares denoising
 For a noisy observation, ![y=x+z](https://latex.codecogs.com/svg.latex?;y=x+z), the least squares estimate of the true signal is the conditional mean of the posterior:
 
-![](https://latex.codecogs.com/svg.latex?\hat{x}(y)=min_{\hat{x}}\int||\hat{x}-x||^2p(x|y)dx) 
-
-![](https://latex.codecogs.com/svg.latex?\hat{x}(y)=\int(xp(x|y)dx)) 
-
 ![](figs/fig3.png)
+
+![](https://latex.codecogs.com/svg.latex?\hat{x}(y)=min_{\hat{x}}\int||\hat{x}-x||^2p(x|y)dx=\int(xp(x|y)dx)) 
 
 ### Exposing the implicit prior through Empirical Bayes estimation
 For Gaussian noise contamination, the least squares estimate can be written (exactly) as:
 
-![](https://latex.codecogs.com/svg.latex?\hat{x}(y)=\int(xp(x|y)dx))
+![](https://latex.codecogs.com/svg.latex?\hat{x}(y)=\int(xp(x|y)dx)=y+\sigma^2\nabla_y\log(p(y)))
 
-![](https://latex.codecogs.com/svg.latex?\hat{x}(y)=y+\sigma^2\nabla_y\log(p(y))) 
 
 This is Miyasawa’s Empirical Bayes formulation (1961), which expresses the denoising operation in terms of the gradient of the prior predictive density, ![p(y)](https://latex.codecogs.com/svg.latex?p(y)). 
-Below, we show a two-dimensional simulation/visualization.End of red line segments shows the least-squares optimal denoising solution ![\hat{x}](https://latex.codecogs.com/svg.latex?\hat{x}) for each noisy signal, ![y](https://latex.codecogs.com/svg.latex?;y).
+Below, we show a two-dimensional simulation/visualization. End of red line segments shows the least-squares optimal denoising solution ![\hat{x}](https://latex.codecogs.com/svg.latex?\hat{x}) for each noisy signal, ![y](https://latex.codecogs.com/svg.latex?;y):
 
 ![](figs/fig4.png)
 
@@ -36,15 +34,15 @@ Below, we show a two-dimensional simulation/visualization.End of red line segmen
 Algorithm in a nutshell:
 * Use denoiser-defined gradient to go uphill in probability 
 *  Do this iteratively 
-* On each step, effect noise decreases, and effective prior becomes less blurred. Gradient step size automatically adapts to each noise level. 
+* On each step, effective noise decreases, and effective prior becomes less blurred. Gradient step size automatically adapts to each noise level. 
 * This coarse to fine optimization procedure converges to a point on the manifold! 
 
-Two-dimensional visualization: trajectory of our iterative coarse-to-fine inverse algorithm
+Below is a two-dimensional visualization of trajectory of our iterative coarse-to-fine inverse algorithm:
 ![](figs/fig8.png)
 
-Click [here]() to watch a video of an animation of the two-dimensional simulatoin.
+Click [here]() to watch a video of the two-dimensional simulatoin.
 
-Sequences of images, ![](https://latex.codecogs.com/svg.latex?y_t), from the iterative sampling procedure, with different initializations, ![](https://latex.codecogs.com/svg.latex?y_0), and added noise, ![](https://latex.codecogs.com/svg.latex?\beta):
+Sequences of images, ![](https://latex.codecogs.com/svg.latex?y_t), from the iterative sampling procedure, with different initializations, ![](https://latex.codecogs.com/svg.latex?y_0), and added noise, ![](https://latex.codecogs.com/svg.latex?\beta) are shown below. This is equivalent to the above simluation, but in the image space. Here we use a denoiser (BF-CNN) denoiser trained on (1) grayscale natural images (2) color natural images and (3) MNIST dataset. Starting from noise, the algorithm follow a trajectory to eventually sample from the manifold embedded in denoiser in use. 
 ![](figs/synthesis_progression.png)
 ![](figs/synthesis_progression2.png)
 ![](figs/synthesis_color_4.png)
@@ -53,11 +51,11 @@ Sequences of images, ![](https://latex.codecogs.com/svg.latex?y_t), from the ite
 ![](figs/synthesis_mnist_2.png)
 
 ### Solving linear inverse problems using the implicit prior
+Given a set of linear measurements of an image, ![](https://latex.codecogs.com/svg.latex?x_c) = ![](https://latex.codecogs.com/svg.latex?M^Tx), where M is a low-rank measurement matrix, we use an enhanced version of our algorithm to recover the original image. This is equivalent to restricting the algorithm to converge to the intersection of the manifold and the hyperplane spanned by the column space of M. To demonstrate this, we show partially linearly measured images and their reconstrcution for 5 different types of measurement matrices, M. 
+
 ![](figs/fig9.png)
 
-Given a set of linear measurements of an image, ![](https://latex.codecogs.com/svg.latex?x_c) = ![](https://latex.codecogs.com/svg.latex?M^Tx), where M is a low-rank measurement matrix, we use an enhanced version of our algorithm to recover the original image
-
-#### Inpainting
+#### 1. Inpainting
 ![](figs/inpaint_gray.png)
 ![](figs/inpaint_samples_flower.png)
 ![](figs/inpaint_mnist.png)
