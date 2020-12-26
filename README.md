@@ -73,7 +73,7 @@ Below is a two-dimensional visualization of trajectory of our iterative coarse-t
 
 <img src="figs/fig8.png" width="250" height="250">
 
-Click [here]() to watch a video of the two-dimensional simulatoin.
+Click [here](https://www.youtube.com/watch?v=wfOq7kAc3Z8) to watch a video of the two-dimensional simulatoin.
 
 Sequences of images, ![](https://latex.codecogs.com/svg.latex?y_t), from the iterative sampling procedure, with different initializations, ![](https://latex.codecogs.com/svg.latex?y_0), and added noise, ![](https://latex.codecogs.com/svg.latex?\beta) are shown below. This is equivalent to the above simluation, but in the image space. Here we use a denoiser (BF-CNN) denoiser trained on (1) grayscale natural images (2) color natural images and (3) MNIST dataset. Starting from noise, the algorithm follow a trajectory to eventually sample from the manifold embedded in denoiser in use. 
 
