@@ -4,17 +4,18 @@ Zahra Kadkhodaie, Eero P. Simoncelli,<br>
 
 ## Summary
 ### Image priors, manifolds, and noisy observations
-Visual images lie on a low-dimensional manifold, spanned by various natural deformations. Images on this manifold are approximately equally probable - at least locally. Probability of <img src="https://render.githubusercontent.com/render/math?math=x"> being a natural image, <img src="https://render.githubusercontent.com/render/math?math=p(x)">, is zero everywhere except for <img src="https://render.githubusercontent.com/render/math?math=x"> drawn from the manifold. 
-![](figs/fig1.png)
+Visual images lie on a low-dimensional manifold, spanned by various natural deformations. Images on this manifold are approximately equally probable - at least locally. Probability of ![](https://latex.codecogs.com/svg.latex?x) being a natural image, ![](https://latex.codecogs.com/svg.latex?p(x)), is zero everywhere except for ![](https://latex.codecogs.com/svg.latex?x) drawn from the manifold. 
 
-An observed image, <img src="https://render.githubusercontent.com/render/math?math=y">, contaminated with Gaussian noise, <img src="https://render.githubusercontent.com/render/math?math=z\sim \mathcal N(0,\sigma^2)"> is drawn from an observation density, <img src="https://render.githubusercontent.com/render/math?math=p(y)">, which is a Gaussian-blurred version of the image prior. Moreover, the family of observation densities over different noise variances, <img src="https://render.githubusercontent.com/render/math?math=p_{\sigma}(y)">, forms a Gaussian scale-space representation of the prior analogous to the temporal evolution of a diffusion process
+<img src="figs/fig1.png" width="680" height="250">
+
+An observed image, ![](https://latex.codecogs.com/svg.latex?y), contaminated with Gaussian noise, <img src="https://render.githubusercontent.com/render/math?math=z\sim \mathcal N(0,\sigma^2)"> is drawn from an observation density, ![](https://latex.codecogs.com/svg.latex?p(y)), which is a Gaussian-blurred version of the image prior. Moreover, the family of observation densities over different noise variances, ![](https://latex.codecogs.com/svg.latex?p_{\sigma}(y)), forms a Gaussian scale-space representation of the prior analogous to the temporal evolution of a diffusion process
 
 ![](figs/fig2.png)
 
 ### Least squares denoising
 For a noisy observation, ![y=x+z](https://latex.codecogs.com/svg.latex?;y=x+z), the least squares estimate of the true signal is the conditional mean of the posterior:
 
-![](figs/fig3.png)
+<img src="figs/fig3.png" width="630" height="265">
 
 ![](https://latex.codecogs.com/svg.latex?\hat{x}(y)=min_{\hat{x}}\int||\hat{x}-x||^2p(x|y)dx=\int(xp(x|y)dx)) 
 
@@ -38,11 +39,13 @@ Algorithm in a nutshell:
 * This coarse to fine optimization procedure converges to a point on the manifold! 
 
 Below is a two-dimensional visualization of trajectory of our iterative coarse-to-fine inverse algorithm:
-![](figs/fig8.png)
+
+<img src="figs/fig8.png" width="250" height="250">
 
 Click [here]() to watch a video of the two-dimensional simulatoin.
 
 Sequences of images, ![](https://latex.codecogs.com/svg.latex?y_t), from the iterative sampling procedure, with different initializations, ![](https://latex.codecogs.com/svg.latex?y_0), and added noise, ![](https://latex.codecogs.com/svg.latex?\beta) are shown below. This is equivalent to the above simluation, but in the image space. Here we use a denoiser (BF-CNN) denoiser trained on (1) grayscale natural images (2) color natural images and (3) MNIST dataset. Starting from noise, the algorithm follow a trajectory to eventually sample from the manifold embedded in denoiser in use. 
+
 ![](figs/synthesis_progression.png)
 ![](figs/synthesis_progression2.png)
 ![](figs/synthesis_color_4.png)
@@ -53,7 +56,7 @@ Sequences of images, ![](https://latex.codecogs.com/svg.latex?y_t), from the ite
 ### Solving linear inverse problems using the implicit prior
 Given a set of linear measurements of an image, ![](https://latex.codecogs.com/svg.latex?x_c) = ![](https://latex.codecogs.com/svg.latex?M^Tx), where M is a low-rank measurement matrix, we use an enhanced version of our algorithm to recover the original image. This is equivalent to restricting the algorithm to converge to the intersection of the manifold and the hyperplane spanned by the column space of M. To demonstrate this, we show partially linearly measured images and their reconstrcution for 5 different types of measurement matrices, M. 
 
-![](figs/fig9.png)
+<img src="figs/fig8.png" width="250" height="250">
 
 #### 1. Inpainting
 ![](figs/inpaint_gray.png)
