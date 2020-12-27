@@ -116,7 +116,8 @@ With different initializations and different additive noise, the algorithm traje
 ![](figs/deblur_mnist.png)
 
 #### 5. Random basis - compressive sensing
-Dimensionality reduced to 10%.
+In this application, ![](https://latex.codecogs.com/svg.latex?M) contains random vectors that span a subspace whose dimensionality is 10% of the dimensionality of the image. That is, the image is projected onto a lower dimensional random subspace. 
+
 ![](figs/rand_basis_gray.png)
 ![](figs/rand_basis_soldier.png)
 ![](figs/rand_basis_mnist.png)
