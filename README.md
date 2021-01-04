@@ -7,10 +7,10 @@ Zahra Kadkhodaie, Eero P. Simoncelli<br>
 The [denoisers](denoisers) directory contains several unversal CNN denoisers, pre-trained for removing Gaussian noise from natural images with the objective of minimizing mean square error. All denoisers are "blind": they can remove noise of any standard deviation, and this standard deviation does not need to be specified. The implicit embedded prior depends on the architecture of the denoiser as well as the images in the training set. The [denoisers](denoisers)  directory contains a separate folder for each denoiser architecture, with code specified in [code/network.py](code/network.py). Within each architecure directory, there are multiple folders containing variants of that denoiser trained on a particular dataset for a specific noise range. 
 
 ### 2. Code
-The <pre>code</pre> directory contains the python code for the [algorithm](code/algorithm_inv_prob.py), the pre-trained [denoisers](code/network.py), and [helper functions](code/Utils_inverse_prob.py). 
+The <var>code</var> directory contains the python code for the [algorithm](code/algorithm_inv_prob.py), the pre-trained [denoisers](code/network.py), and [helper functions](code/Utils_inverse_prob.py). 
 
 ### 3. Test_images
-The <pre>test_images</pre> directory contains several commonly used [color](test_images/color) and [grayscale](test_images/grayscale) image datasets.
+The <var>test_images</var> directory contains several commonly used [color](test_images/color) and [grayscale](test_images/grayscale) image datasets.
 
 ### 4. Demo
 The notebook [Demo.ipynb](Demo.ipynb) contains code for loading a pre-trained universal denoiser, and using it to <b>draw samples</b> from the image prior that is implicitly embedded within the denoiser (see paper). It also contains code for solving a set of <b>linear inverse problems</b>: inpainting, deblurring, super-resolution, randomly-dropped pixels, and compressive sensing. Notice that there is no additional training involved for solving these problems, and the same algorithm is used for all. The algorithm uses the prior embedded in the denoiser to generate the missing parts of the partially measured image. 
