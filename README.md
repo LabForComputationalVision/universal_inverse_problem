@@ -112,7 +112,7 @@ Measurements consist of 10% of Fourier coefficients (the lowest frequencies).
 ![](figs/deblur_butterfly.png)
 ![](figs/deblur_mnist.png)
 
-#### 5. Random basis - compressive sensing
+#### 5. Random basis (compressive sensing)
 Here, the measurement matrix ![](https://latex.codecogs.com/svg.latex?M) contains random orthogonal unit vectors that span a subspace whose dimensionality is 10% of the dimensionality of the image. Thus, the measurements are the projections of the image onto a low-dimensional random subspace. 
 
 ![](figs/rand_basis_gray.png)
