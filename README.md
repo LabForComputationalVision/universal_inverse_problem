@@ -70,7 +70,7 @@ Below is a two-dimensional visualization of example trajectories of the sampling
 
 Click [here](https://www.youtube.com/watch?v=wfOq7kAc3Z8) to watch a video of the two-dimensional simulation.
 
-When the method is used to sample an image, we can visualize points along these trajectories as sequences of images, ![](https://latex.codecogs.com/svg.latex?y_t).  Below are three pairs of sequences, for the BF-CNN denoiser trained on (1) grayscale natural images (2) color natural images and (3) the MNIST dataset of handwritten digits.  Each pair includes two sequences with different initial (leftmost) images, ![](https://latex.codecogs.com/svg.latex?y_0), and added noise, ![](https://latex.codecogs.com/svg.latex?\beta). Each sequence converges to a sample from the prior (manifold) implicit in the corresponding denoiser.
+When the method is used to sample an image, we can visualize points along these trajectories as sequences of images, ![](https://latex.codecogs.com/svg.latex?y_t).  Below are three pairs of sequences, for the BF-CNN denoiser trained on (1) grayscale natural images (2) color natural images and (3) the MNIST dataset of handwritten digits.  Each pair includes two sequences with different initial (leftmost) images, ![](https://latex.codecogs.com/svg.latex?y_0), and added noise, ![](https://latex.codecogs.com/svg.latex?\beta). Each sequence converges to a sample from the prior (manifold) implicit in the corresponding denoiser (rightmost images).
 
 ![](figs/synthesis_progression.png)
 ![](figs/synthesis_progression2.png)
