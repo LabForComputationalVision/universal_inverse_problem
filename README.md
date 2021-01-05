@@ -42,11 +42,11 @@ An observed image, ![](https://latex.codecogs.com/svg.latex?y), contaminated wit
 ![](figs/fig2.png)
 
 ### Least squares denoising
-Given a noisy observation, ![y=x+z](https://latex.codecogs.com/svg.latex?;y=x+z), the least squares estimate of the true signal is the conditional mean of the posterior:
+Given a noisy observation, ![y=x+z](https://latex.codecogs.com/svg.latex?y=x+z), the least squares estimate of the true signal is the conditional mean of the posterior:
 
 <img src="figs/fig3.png" width="630" height="265">
 
-![](https://latex.codecogs.com/svg.latex?\hat{x}(y)=min_{\hat{x}}\int||\hat{x}-x||^2\,p(x|y)\,dx=\int\left.x\,p(x|y)\,dx\right.) 
+![](https://latex.codecogs.com/svg.latex?\hat{x}(y)=min_{\hat{x}}\int||\hat{x}-x||^2p(x|y)dx=\int\left.xp(x|y)dx\right.) 
 
 ### Exposing the implicit prior through Empirical Bayes estimation
 For Gaussian noise contamination, Miyasawa (1961) showed that the least squares estimate can be written (exactly) as:
