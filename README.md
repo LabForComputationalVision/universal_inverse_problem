@@ -18,7 +18,7 @@ The notebook [Demo.ipynb](Demo.ipynb) contains code for loading a pre-trained un
 [Demo.ipynb](Demo.ipynb) can be executed on CPU or GPU computing platforms. 
 
 ### Requirements 
-You'll need python version 3.7.6 and the following libraries and tools to execute the code: 
+You'll need python version 3.7.6 and the following packages to execute the code: 
 
 numpy 1.19.4 \
 skimage 0.17.2 \
@@ -26,7 +26,7 @@ matplotlib 1.19.4 \
 PyTorch 1.7.0 \
 argparse 1.1 \
 os \
-time\ 
+time \ 
 sys \
 gzip 
 
