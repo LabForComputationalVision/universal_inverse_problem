@@ -75,7 +75,7 @@ When the method is used to sample an image, we can visualize points along these 
 ![](figs/synthesis_progression.png)
 ![](figs/synthesis_progression2.png)
 ![](figs/synthesis_color_4.png)
-![](figs/synthesis_color_2.png)
+![](figs/synthesis_color_3.png)
 ![](figs/synthesis_mnist_1.png)
 ![](figs/synthesis_mnist_2.png)
 
