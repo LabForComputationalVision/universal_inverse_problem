@@ -186,12 +186,12 @@ def plot_sample(x, corrupted, sample):
         
         fig = axs[1].imshow(corrupted.squeeze(-1), 'gray',vmin=0, vmax = 1)
         ssim = np.round(structural_similarity(x.squeeze(-1).numpy(), corrupted.squeeze(-1).numpy()  ) ,3 )
-        psnr = np.round(peak_signal_noise_ratio(x.numpy(), corrupted.numpy() ))
+        psnr = np.round(peak_signal_noise_ratio(x.numpy(), corrupted.numpy() ),2)
         axs[1].set_title('corrupted image \n psnr: '+str( psnr) + '\n ssim '+ str(ssim) );  
         
         fig = axs[2].imshow(sample.squeeze(-1),'gray' ,vmin=0, vmax = 1)
         ssim = np.round(structural_similarity(x.squeeze(-1).numpy(), sample.squeeze(-1).numpy()  ) ,3 )
-        psnr = np.round(peak_signal_noise_ratio(x.numpy(), sample.numpy() ))
+        psnr = np.round(peak_signal_noise_ratio(x.numpy(), sample.numpy() ),2)
         axs[2].set_title('reconstructed \n psnr: '+str( psnr) + '\n ssim '+ str(ssim) );
 
             
@@ -201,12 +201,12 @@ def plot_sample(x, corrupted, sample):
         
         fig = axs[1].imshow( torch.clip(corrupted,0,1), vmin=0, vmax = 1)
         ssim = np.round(structural_similarity(x.numpy(), corrupted.numpy(), multichannel=True  ) ,3 )
-        psnr = np.round(peak_signal_noise_ratio(x.numpy(), corrupted.numpy() ))
+        psnr = np.round(peak_signal_noise_ratio(x.numpy(), corrupted.numpy() ),2)
         axs[1].set_title('corrupted image \n psnr: '+str( psnr) + '\n ssim '+ str(ssim) );  
         
         fig = axs[2].imshow(torch.clip(sample, 0,1),vmin=0, vmax = 1)
         ssim = np.round(structural_similarity(x.numpy(), sample.numpy() , multichannel=True) ,3)
-        psnr = np.round(peak_signal_noise_ratio(x.numpy(), sample.numpy() ))   
+        psnr = np.round(peak_signal_noise_ratio(x.numpy(), sample.numpy() ),2)   
         axs[2].set_title('reconstructed \n psnr: '+str( psnr) + '\n ssim '+ str(ssim) );
             
             
